@@ -19,7 +19,7 @@
 <body>
 
     <nav class="nav p-3 mb-3 text-primary-emphasis bg-body-secondary">
-        <h1>Estrategias</h1>
+        <h1>Principios</h1>
     </nav>
 
     <div class="container m-3">
@@ -33,7 +33,7 @@
             {% for principio in objetos_principio %}
             <tr>
                 <td>
-                    <a class="nav-link objetos" href="{% url 'elama:descriptores' principio.id %}">{{principio.titulo}}</a>
+                    <a class="nav-link objetos" href="{% url 'elama:descriptores' autoevaluacion_id estrategia_id principio.id %}">{{principio.titulo}}</a>
                 </td>
             </tr>
             {% endfor %}

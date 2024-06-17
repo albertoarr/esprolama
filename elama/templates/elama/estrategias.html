@@ -33,7 +33,7 @@
             {% for estrategia in objetos_estrategia %}
             <tr>
                 <td>
-                    <a class="nav-link objetos" href="{% url 'elama:principios' estrategia.id %}">{{estrategia.titulo}}</a>
+                    <a class="nav-link objetos" href="{% url 'elama:principios' autoevaluacion_id estrategia.id %}">{{estrategia.titulo}}</a>
                 </td>
             </tr>
             {% endfor %}

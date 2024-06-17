@@ -33,7 +33,7 @@
                 {% for descriptor in objetos_descriptor %}
                     <tr>
                         <td>
-                             <a class="nav-link objetos" href="{% url 'elama:volcado' descriptor.id %}">{{descriptor.titulo}}</a>
+                             <a class="nav-link objetos"  href="{% url 'elama:volcado' autoevaluacion_id estrategia_id principio_id descriptor.id %}">{{descriptor.titulo}}</a>
                         </td>
                     </tr>
                 {% endfor %}

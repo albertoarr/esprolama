@@ -16,28 +16,34 @@ def autoevaluaciones(request):
 def estrategias(request, autoevaluacion_id):
     objetos_estrategia = Estrategia.objects.filter(autoevaluacion=autoevaluacion_id)
     context = {
-        'objetos_estrategia': objetos_estrategia
+        'objetos_estrategia': objetos_estrategia,
+        'autoevaluacion_id': autoevaluacion_id
     }
     return render(request, 'elama/estrategias.html', context)
 
 
-def principios(request, estrategia_id):
+def principios(request, autoevaluacion_id, estrategia_id):
     objetos_principio = Principio.objects.filter(estrategia=estrategia_id)
     context = {
         'objetos_principio': objetos_principio,
+        'autoevaluacion_id': autoevaluacion_id,
+        'estrategia_id': estrategia_id
     }
     return render(request, 'elama/principios.html', context)
 
 
-def descriptores(request, principio_id):
+def descriptores(request, autoevaluacion_id, estrategia_id, principio_id):
     objetos_descriptor = Descriptor.objects.filter(principio=principio_id)
     context = {
         'objetos_descriptor': objetos_descriptor,
+        'autoevaluacion_id': autoevaluacion_id,
+        'estrategia_id': estrategia_id,
+        'principio_id': principio_id
     }
     return render(request, 'elama/descriptores.html', context)
 
 
-def volcado(request, autoevaluacion_id, descriptor_id):
+def volcado(request, autoevaluacion_id, estrategia_id, principio_id, descriptor_id,):
     autoevaluacion = Autoevaluacion.objects.get(pk=autoevaluacion_id)
     descriptor = Descriptor.objects.get(pk=descriptor_id)
     existe = True
@@ -66,7 +72,12 @@ def volcado(request, autoevaluacion_id, descriptor_id):
                 v.autoevaluacion = autoevaluacion
                 v.descriptor = descriptor
                 v.save()
-        #return redirect('elama: individual', autoevaluacion_id=autoevaluacion.id)
+        return redirect(
+            'elama:descriptores',
+            autoevaluacion_id=autoevaluacion.id,
+            estrategia_id=estrategia_id,
+            principio_id=principio_id
+        )
 
     context = {
         'autoevaluacion': autoevaluacion,

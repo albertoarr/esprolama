@@ -21,9 +21,9 @@ from elama import views
 app_name = 'elama'
 urlpatterns = [
     path('individual/nueva/', views.autoevaluaciones, name='autoevaluaciones'),
-    path('individual/nueva/autoevaluacion_<int:autoevaluacion_id>/', views.estrategias, name='estrategias'),
-    path('individual/nueva/estrategia_<int:estrategia_id>/', views.principios, name='principios'),
-    path('individual/nueva/principio_<int:principio_id>/', views.descriptores, name='descriptores'),
-    path('individual/nueva/descriptor_<int:descriptor_id>/', views.volcado, name='volcado'),
+    path('individual/nueva/autoev_<int:autoevaluacion_id>/', views.estrategias, name='estrategias'),
+    path('individual/nueva/ae_<int:autoevaluacion_id>/strat_<int:estrategia_id>/', views.principios, name='principios'),
+    path('individual/nueva/ae_<int:autoevaluacion_id>/strat_<int:estrategia_id>/pr_<int:principio_id>', views.descriptores, name='descriptores'),
+    path('individual/nueva/ae_<int:autoevaluacion_id>/strat_<int:estrategia_id>/pr_<int:principio_id>/de_<int:descriptor_id>/', views.volcado, name='volcado'),
     #path('individual/edit/', include(''))
 ]
