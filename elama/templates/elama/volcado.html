@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrategias</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+
+<body>
+    <h1>PUNTUACIÓN:</h1>
+    <!--<h2>{{ descriptor.principio.estrategia }}</h2>
+    <h2>{{ descriptor.principio }}</h2>
+    <p>{{ descriptor.contenido }}</p>
+    -->
+    <div class="container d-flex justify-content-center">
+        <form action="{% url "NO SÉ QUÉ VA AQUÍ" %}" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" class="btn btn outline-primary" value="Siguiente">
+        </form>
+    </div>
+
+</body>
+</html>

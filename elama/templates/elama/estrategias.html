@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrategias</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <style>
+        .objetos {
+            transition: .3s all !important;
+        }
+        .objetos:hover {
+            color: rgb(217, 95, 3) !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="nav p-3 mb-3 text-primary-emphasis bg-body-secondary">
+        <h1>Estrategias</h1>
+    </nav>
+
+    <div class="container m-3">
+        <table class="table table-center">
+        <thead>
+            <tr>
+                <th colspan="2" scope="col" class="fs-3">Nombre</th>
+            </tr>
+        </thead>
+        {% if objetos_estrategia %}
+            {% for estrategia in objetos_estrategia %}
+            <tr>
+                <td>
+                    <a class="nav-link objetos" href="{% url 'elama:principios' estrategia.id %}">{{estrategia.titulo}}</a>
+                </td>
+            </tr>
+            {% endfor %}
+        {% endif %}
+        </table>
+    </div>
+</body>
+</html>
